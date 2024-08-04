@@ -6,10 +6,10 @@ import "leaflet/dist/leaflet.css";
 import L from 'leaflet';
 
 // Using an ES6 transpiler like Babel -- getting react rangeslider to control the alpha 
-import Slider from 'react-rangeslider'
+//import Slider from 'react-rangeslider'
 
 // To include the default styles
-import 'react-rangeslider/lib/index.css'
+//import 'react-rangeslider/lib/index.css'
 
 const hostname = "http://135.148.120.123:4000/"
 
@@ -66,7 +66,7 @@ const SimpleMap = () => {
   const latitude = 35.5;
   const longitude = -79.390926;
   const [data, setData] = useState([]);
-  const [alphaValue, setalphaValue] = useState(100);
+  const [alphaValue, setalphaValue] = useState(90);
 
   const handleMapChange = async (center, bounds, zoom) => {
     const ne = bounds.getNorthEast();
@@ -79,6 +79,7 @@ const SimpleMap = () => {
     console.log(zoom);
 
     if (zoom > 15) {
+      setalphaValue(60);
       try {
         const response = await fetch(`${hostname}?lonmin=${lonmin}&lonmax=${lonmax}&latmin=${latmin}&latmax=${latmax}`, {
           method: "GET"
@@ -93,6 +94,10 @@ const SimpleMap = () => {
       }
     } else {
       setData([]);
+    }
+
+    if (zoom <= 15){
+      setalphaValue(90);
     }
   };
 
@@ -144,7 +149,23 @@ const SimpleMap = () => {
         ))}
       </MapContainer>
       
-      <div 
+
+      
+      
+      
+      
+    </div>
+  );
+};
+
+
+export default SimpleMap;
+
+
+
+
+/* put this back in when you can figure out a slider that works
+<div 
         style={{ 
           position: "absolute", 
           top: "75px", 
@@ -161,10 +182,5 @@ const SimpleMap = () => {
           onChange={handleSliderChange}
           style={{ height: '100%' }}
         />
-      </div>
-    </div>
-  );
-};
-
-
-export default SimpleMap;
+        </div>
+*/
