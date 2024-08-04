@@ -1,2 +1,2 @@
 # apart-react
-An extremely detailed political map of North Carolina
+An extremely detailed political map of North Carolina in 2020. All data is obtained from the North Carolina State Board of Elections, and is public use. No identifying characteristics are provided to protect the privacy of individual residents.
