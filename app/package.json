@@ -30,8 +30,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {
@@ -46,7 +45,8 @@
       "last 1 safari version"
     ]
   },
-  "resolutions": {
-  "babel-jest": "24.7.1"
+  "babel": {
+    "presets": ["@babel/preset-env"],
+    "plugins": ["@babel/plugin-proposal-private-property-in-object"]
   }
 }
