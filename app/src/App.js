@@ -11,7 +11,7 @@ import L from 'leaflet';
 // To include the default styles
 //import 'react-rangeslider/lib/index.css'
 
-const hostname = "http://135.148.120.123:4000/"
+const hostname = "https://135.148.120.123:4000/"
 
 function MapEventHandler({ onMapChange }) {
   const map = useMapEvents({
